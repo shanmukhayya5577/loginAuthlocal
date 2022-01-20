@@ -1,0 +1,14 @@
+<form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+    <div>
+    <label>username:</label>
+    <input #uname="ngModel" name="uname" type="text"  required minlength="3" pattern="[a-zA-Z]+$" ngModel><br> 
+    <span style="color: red;" *ngIf="uname.invalid && uname.touched">Enter the min 3 latter</span><br>
+
+    <label>password</label>
+    <input #pass="ngModel" type="password"  name="pass" required minlength="3" ngModel><br>
+    <span style="color: red;" *ngIf="pass.invalid && pass.touched">atleast 3 letters</span><br>
+
+    <button [disabled]="regForm.invalid">Submit</button>
+</div>
+</form>
+<h2>{{regForm.value | json}}</h2>

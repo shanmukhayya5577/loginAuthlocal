@@ -1,0 +1,15 @@
+<!-- <p>registration works!</p> -->
+<form #logForm="ngForm" (ngSubmit)="onSignup(logForm)">
+    <div>
+    <label>username:</label>
+    <input #regname="ngModel" name="regname" type="text"  required minlength="3" pattern="[a-zA-Z]+$" ngModel><br>
+    <span style="color: red;" *ngIf="regname.invalid && regname.touched">Enter the min 3 latter</span><br>
+
+    <label>password</label>
+    <input #regpass="ngModel" type="password"  name="regpass" required minlength="3" ngModel><br>
+    <span style="color: red;" *ngIf="regpass.invalid && regpass.touched">atleast 3 letters</span><br>
+
+    <button type="submit" [disabled]="logForm.invalid">Signup</button>
+</div>
+</form>
+<h2>{{logForm.value | json}}</h2> 
